@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- job section -->
+<section class="job_section layout_padding">
+  <div class="container">
+    <div class="job_container">
+      <h4 class="job_heading">
+        Cart Trips
+      </h4>
+      <div class="row">
+        <table class="table align-middle mb-0 bg-white">
+          <thead class="bg-light">
+          <tr>
+            <th>Trip Locations</th>
+            <th>Bus Number</th>
+            <th>Status</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="model:${cartTrip}">
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                        src="images/bus-png-4.png"
+                        alt=""
+                        style="width: 45px; height: 45px"
+                        class="rounded-circle mr-3"
+                />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1" th:text="${model.startLocation}">John Doe</p>
+                  <p class="text-muted mb-0" th:text="${model.destination}">john.doe@gmail.com</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1" th:text="${model.busNumber}">Software engineer</p>
+<!--              <p class="text-muted mb-0">Time:<span class="text-info" th:text="${departureTime}"></span></p>-->
+            </td>
+            <td>
+              <span class="badge badge-success rounded-pill d-inline">Active</span>
+            </td>
+            <td th:text="${model.ticketPrice}">Senior</td>
+            <td>
+              <a class="apply-btn"
+                 th:href="@{'/trip/removeItem/' + ${model.id}}">
+                remove
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right;font-size: 24px;">
+              <strong>Your Total is <span>[[${total}]]CFA</span></strong>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="btn-box">
+      <a th:href="@{/checkoutTrip}">
+        Checkout
+      </a>
+    </div>
+  </div>
+</section>
+<!-- end job section -->
+
+<div th:replace="footer :: footer"></div>
+
+

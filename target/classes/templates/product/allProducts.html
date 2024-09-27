@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- job section -->
+<section class="job_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="job_heading">
+                <div class="btn-box">
+                    <a th:href="@{/addProduct}">
+                        Create Product
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="job_container">
+            <h4 class="job_heading">
+                Featured Products
+            </h4>
+            <div class="row">
+                <div class="col-lg-6"  th:each="model:${productList}">
+                    <div class="box">
+                        <div class="job_content-box">
+                            <div class="img-box">
+                                <img src="images/product.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5 th:text="${model.productName}">
+                                    Development Team Lead
+                                </h5>
+                                <div class="detail-info">
+                                    <h6>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <span th:text="${model.productDescription}">
+                                                Washington. D.C.
+                                            </span>
+                                    </h6>
+                                    <h6>
+                                        <i class="fa fa-money" aria-hidden="true"></i>
+                                        $<span th:text="${model.price}">
+                                            $1200 - $1300
+                                        </span>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="option-box">
+                                    <button class="fav-btn">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    </button>
+                                    <a class="apply-btn"
+                                       th:href="@{'/addToCart/' + ${model.id}}">
+                                        Add to cart
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="option-box">
+                                    <button class="fav-btn">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    </button>
+                                    <a class="apply-btn"
+                                       th:href="@{'/product/detail/' + ${model.id}}">
+                                        view
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="">
+                View All
+            </a>
+        </div>
+    </div>
+</section>
+<!-- end job section -->
+
+<div th:replace="footer :: footer"></div>
+
+

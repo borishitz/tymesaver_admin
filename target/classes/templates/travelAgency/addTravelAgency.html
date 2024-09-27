@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- slider section -->
+<section class="job_section" style="min-height: 100vh;">
+  <div class="container" >
+    <div class="find_container ">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3 class="px-5 text-light">Create a TravelAgency</h3>
+            <form th:action="@{/saveTravelAgency}" method="post" th:object="${travelAgency}">
+              <div class="form-row px-5">
+                <div class="form-group col-lg-12">
+                  <input th:field="*{agencyName}" type="text" name="agencyName"  class="form-control" id="agencyName" placeholder="Enter the Agency Name!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{agencyLocation}" type="text" name="agencyLocation"  class="form-control" id="agencyLocation" placeholder="Enter the Location!!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{cityOrTown}" type="text" name="cityOrTown"  class="form-control" id="cityOrTown" placeholder="Enter the city Or Town!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{proName}" type="text" name="proName"  class="form-control" id="proName" placeholder="Enter the Pro Name!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{mangerName}" type="text" name="mangerName"  class="form-control" id="mangerName" placeholder="Enter the Manger Name!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{lat}" type="text" name="lat"  class="form-control" id="lat" placeholder="Enter the lat!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{lng}" type="text" name="lng"  class="form-control" id="lng" placeholder="Enter the lng!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{telephone}" type="text" name="telephone"  class="form-control" id="telephone" placeholder="Enter the telephone!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{telephone2}" type="text" name="telephone2"  class="form-control" id="telephone2" placeholder="Enter the telephone2!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{email}" type="text" name="email"  class="form-control" id="email" placeholder="Enter the email!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{agencyOpenTime}" type="text" name="agencyOpenTime"  class="form-control" id="agencyOpenTime" placeholder="Enter the AgencyOpenTime!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{agencyCloseTime}" type="text" name="agencyCloseTime"  class="form-control" id="agencyCloseTime" placeholder="Enter the AgencyCloseTime!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{services}" type="text" name="services"  class="form-control" id="services" placeholder="Enter the services!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{license}" type="text" name="agencyLocation"  class="form-control" id="license" placeholder="Enter the license!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{status}" type="text" name="status"  class="form-control" id="status" placeholder="Enter the status!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{pob}" type="text" name="pob"  class="form-control" id="pob" placeholder="Enter the pob!">
+                </div>
+                <div class="form-group col-lg-12">
+                  <input th:field="*{yearsInExistence}" type="text" name="yearsInExistence"  class="form-control" id="yearsInExistence" placeholder="Enter the yearsInExistence!">
+                </div>
+                <div class="btn-box col-lg-12 py-4">
+                  <button type="submit" class="btn btn-primary w-100">Create</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end slider section -->
+
+<div th:replace="footer :: footer"></div>

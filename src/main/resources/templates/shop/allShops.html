@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- job section -->
+<section class="job_section layout_padding">
+    <div class="container">
+        <div class="job_container">
+            <div class="row">
+                <div class="job_heading">
+                    <div class="btn-box">
+                        <a th:href="@{/addShop}">
+                            Create Shop
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 my-5"  th:each="model:${shopList}">
+                    <div class="card bg-transparent my-3 border">
+                        <div class="px-5 bg-light">
+                            <img src="images/shop-4.webp" class="card-img-top" alt="Fissure in Sandstone"/>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${model.shopName}">Card title</h5>
+                            <p class="card-text" th:text="${model.description}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a th:href="@{'/new/product/' + ${model.id}}" class="btn btn-primary" data-mdb-ripple-init>Create Product</a>
+                            <a th:href="@{/shop/products/{id}(id=${model.id})}" class="btn btn-primary" data-mdb-ripple-init>View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="">
+                View All
+            </a>
+        </div>
+    </div>
+</section>
+<!-- end job section -->
+
+<div th:replace="footer :: footer"></div>
+
+

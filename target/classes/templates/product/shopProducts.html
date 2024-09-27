@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- job section -->
+<section class="job_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                All Products in <span class="" th:text="${shop.shopName}"></span>
+            </h2>
+        </div>
+        <div class="job_container">
+            <h4 class="job_heading">
+                Featured Products
+            </h4>
+            <div class="row">
+                <div class="col-sm-4 mb-3 mb-sm-0" th:each="model:${shopProducts}">
+                    <div class="card bg-transparent">
+                        <div class="card-body">
+                            <img src="images/product.png" class="card-img-top" alt="...">
+                            <h5 class="card-title mt-2" th:text="${model.productName}">Special title treatment</h5>
+                            <p class="card-text" th:text="${model.productDescription}">With supporting text below as a natural lead-in to additional content.</p>
+                            <span>[[${model.price}]]Fcfa</span>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="option-box">
+                                        <a class="apply-btn"
+                                           th:href="@{'/addToCart/' + ${model.id}}">
+                                            <button class="fav-btn">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                Add to cart
+                                            </button>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="option-box">
+                                        <a class="apply-btn"
+                                           th:href="@{'/product/detail/' + ${model.id}}"
+                                        >
+                                            <button class="fav-btn">
+                                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                view
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="">
+                View All
+            </a>
+        </div>
+    </div>
+</section>
+<!-- end job section -->
+
+<div th:replace="footer :: footer"></div>
+
+

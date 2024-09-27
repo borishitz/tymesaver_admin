@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- slider section -->
+<section class="slider_section hero_area">
+    <div class="container" style="min-height: 60vh;">
+        <div class="find_container ">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="px-5 text-light">Create a Trip</h3>
+                        <form th:action="@{/saveTrip}" method="post" th:object="${tripDto}" enctype="multipart/form-data">
+                            <div class="form-row px-5">
+                                <div class="form-group form-group col-lg-12">
+                                    <label class="text-light">Agency Name</label>
+                                    <select th:field="*{travelAgency}" class="form-control w-full" required>
+                                        <th:block th:each="travelAgency : ${agency}">
+                                            <option th:text="${travelAgency.agencyName}" th:value="${travelAgency.id}"/>
+                                        </th:block>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label class="text-light">Start Location</label>
+                                    <input th:field="*{startLocation}" type="text" name="startLocation"  class="form-control" id="startLocation" placeholder="Enter The Start Location!">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label class="text-light">Start Location</label>
+                                    <input th:field="*{destination}"  type="text" name="destination"  class="form-control" id="destination" placeholder="Enter The Start Location!">
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label class="text-light">Bus Number</label>
+                                    <input th:field="*{busNumber}" type="number" name="busNumber"  class="form-control" id="busNumber">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label class="text-light">Departure Time</label>
+                                    <input th:field="*{departureTime}" type="datetime-local" name="departureTime"  class="form-control" id="departureTime">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label class="text-light">Discount Price</label>
+                                    <input th:field="*{salePrice}" type="text" name="salePrice"  class="form-control" id="salePrice">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label class="text-light">Ticket Price</label>
+                                    <input th:field="*{costPrice}" type="text" name="costPrice"  class="form-control" id="costPrice">
+                                </div>
+                                <div class="btn-box col-lg-12 pt-2">
+                                    <button type="submit" class="btn w-100">Create</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end slider section -->
+
+<div th:replace="footer :: footer"></div>

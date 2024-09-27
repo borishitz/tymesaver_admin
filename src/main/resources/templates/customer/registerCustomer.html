@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- slider section -->
+<section class="job_section">
+  <div class="container" style="min-height: 60vh;">
+    <div class="find_container ">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3 class="px-5 text-light">Register A New Account</h3>
+
+            <div th:if="${succes}" >
+              <strong>Account Created Successfully</strong>
+              <a href="/login">Login</a>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <form th:action = "@{/do-register}" method="POST" th:object = "${customerDto}">
+              <div class="input-form">
+                <div class="input-form">
+                  <input class="form-control" type="text" placeholder="First Name" name="firstname" th:field = "*{firstName}" required>
+                </div>
+                <div class="alert alert-danger" th:if = "${#fields.hasErrors('firstName')}"
+                     th:errors = "*{firstName}"></div>
+              </div>
+              <div class="input-form">
+                <div class="input-form">
+                  <!-- <span>User name</span> -->
+                  <input class="form-control"  type="text" placeholder="Last Name" name="lastname" th:field = "*{lastName}" required>
+                  <div class="alert alert-danger" th:if = "${#fields.hasErrors('lastName')}"
+                       th:errors = "*{lastName}"></div>
+                </div>
+
+                <div class="input-form">
+                  <div class="input-form">
+                    <input class="form-control"  type="text" placeholder="Username" name="username" th:field = "*{username}" required>
+                  </div>
+                  <div class="input-form">
+                    <input type="password" placeholder="Password" name="password" th:field = "*{password}" required>
+                    <div class="alert alert-danger" th:if = "${#fields.hasErrors('password')}"
+                         th:errors = "*{password}"></div>
+                  </div>
+                  <div class="input-form">
+                    <input class="form-control"  type="password" placeholder="Verify password" name="confirm" th:field = "*{confirmPassword}" required>
+                  </div>
+                  <div class="input-form">
+                    <p>Do You Already Have An Account ? <a th:href = "@{/login}"> Sign in now </a></p>
+                  </div>
+                  <div class="input-form">
+                    <input class="form-control"  type="submit" value="Sign up">
+                  </div>
+            </form>
+            <h3>Log In With Social Network</h3>
+            <ul class="icon-dang-nhap">
+              <li><i class="fab fa-facebook-f"></i></i></li>
+              <li><i class="fab fa-google"></i></li>
+              <li><i class="fab fa-weibo"></i></li>
+            </ul>
+
+            <hr>
+            <div class="text-center">
+              <a class="small" th:href = "@{/forgot-password}">Forgot Password?</a>
+            </div>
+            <div class="text-center">
+              <a class="small" th:href = "@{/login}">Already have an account? Login!</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end slider section -->
+
+<div th:replace="footer :: footer"></div>

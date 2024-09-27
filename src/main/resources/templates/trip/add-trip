@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- slider section -->
+<section style="min-height: 100vh;" class="slider_section hero_area">
+    <div class="container" style="min-height: 100vh;">
+        <div class="find_container ">
+            <div class="container">
+                <form class="form-horizontal text-light" th:action="@{/save-product}" method="post" th:object = "${productDto}"
+                          enctype="multipart/form-data">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend>ADD NEW TRIP</legend>
+
+<!--                            <div class="form-group col-lg-12 row">-->
+<!--                                <label class="text-light col-md-4 control-label">Agency Name</label>-->
+<!--                                <select th:field="*{travelAgency}" class="form-control w-full col-md-8" required>-->
+<!--                                    <th:block th:each="agency : ${agency}">-->
+<!--                                        <option th:text="${agency.agencyName}" th:value="${agency.id}"/>-->
+<!--                                    </th:block>-->
+<!--                                </select>-->
+<!--                            </div>-->
+
+                            <div class="form-group col-lg-12 row">
+                                <label class="col-md-4 control-label" for="product_categories">Agency Name</label>
+                                <div class="col-md-8">
+                                    <select id="travelAgency" th:field = "*{travelAgency}" name="travelAgency" class="form-control w-full">
+                                        <th:block th:each="agency : ${agency}">
+                                            <option th:value = "${agency.id}"
+                                                    th:text = "${agency.agencyName}">
+                                            </option>
+                                        </th:block>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group col-lg-12 row">
+                                <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+                                <div class="col-md-8">
+                                    <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md w-full" required="" type="text">
+                                </div>
+                            </div>
+
+                            <!-- Select Basic -->
+                        <div class="form-group col-lg-12 row">
+                            <label class="col-md-4 control-label" for="product_categories">PRODUCT CATEGORY</label>
+                            <div class="col-md-8">
+                               <select id="product_categories" th:field = "*{category}" name="product_categories" class="form-control w-full">
+                                   <option th:value = "null">-SELECT-</option>
+                                   <option th:each = "category : ${categories}"
+                                                th:value = "${category.id}"
+                                                th:text = "${category.name}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                            <!-- Text input-->
+                        <div class="form-group row col-lg-12">
+                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+                            <div class="col-md-8">
+                                <input id="description" th:field = "*{description}" name="description" class="form-control input-md w-full" required="" type="text">
+                            </div>
+                        </div>
+
+                            <!-- Text input-->
+                        <div class="form-group row col-lg-12">
+                            <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
+                            <div class="col-md-8">
+                                <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md w-full" required="" type="text">
+                            </div>
+                       </div>
+
+                            <!-- Text input-->
+                        <div class="form-group row col-lg-12">
+                            <label class="col-md-4 control-label" for="price">PRICE</label>
+                            <div class="col-md-8">
+                                <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md w-full" required="" type="text">
+                            </div>
+                        </div>
+                            <!-- Text input-->
+                        <div class="form-group row col-lg-12">
+                            <div class="col-md-4">
+                                    <!-- File Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="image">PRODUCT IMAGE</label>
+                                    <div class="col-md-4">
+                                        <input id="image" name="imageProduct" class="input-file" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end slider section -->
+
+<div th:replace="footer :: footer"></div>
